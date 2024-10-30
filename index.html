@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录页</title>
+    <!-- <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script> -->
+    <script src="renxi/vue.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="renxi/iview.css">
+    <script type="text/javascript" src="renxi/iview.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <i-input v-model="value" placeholder="请输入密码" style="width: 150px" size="large" @keyup.enter.native="login"/>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data(){
+                return {
+                    value: "",
+                    password: "",
+                    page: "108120046104116109108"
+                }
+            },
+
+            methods: {
+                login(){
+                    let mi = "";
+                    for(let i=0;i<this.value.length;i++){
+                        let str = this.value.charAt(i);
+                        let code = str.charCodeAt();
+                        mi += code;
+                    }
+
+                    if (mi === "5048484849504949") {
+                        let mi2 = "";
+                        for(let j=0;j<this.page.length;j=j+3){
+                            let code2 = String.fromCharCode(this.page.substr(j,3));
+                            mi2 += code2;
+                        }
+                        window.location.href=mi2;
+                    }else{
+                        this.$Message.error("密码错误");
+                    }
+                }
+            }
+        })
+    </script>
+    <style>
+        body{
+            background-color: #87cefa;
+        }
+
+        #app{
+            text-align: center;
+            margin-top: 10%;
+        }
+    </style>
+</body>
+</html>
