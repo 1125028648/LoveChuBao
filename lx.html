@@ -13,7 +13,7 @@
   <script type="text/javascript" src="./renxi/jscex-async-powerpack.min.js"></script>
   <script type="text/javascript" src="./renxi/functions.js" charset="utf-8"></script>
   <script type="text/javascript" src="./renxi/love.js" charset="utf-8"></script>
-  <audio id="audio" src="renxi/smallstar.ogg" autoplay loop></audio>
+  <audio id="audio" src="renxi/smallstar.ogg" autoplay loop controls></audio>
   <script>
     function toggleSound() {
       var music = document.getElementById("audio"); //获取ID  
@@ -23,7 +23,7 @@
         }
 
     }
-    setInterval("toggleSound()", 2000);
+    setTimeout("toggleSound()", 2000);
     </script>
 </head>
 <body>
