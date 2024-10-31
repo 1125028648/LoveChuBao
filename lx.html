@@ -16,18 +16,10 @@
     <script type="text/javascript" src="./renxi/jscex-async-powerpack.min.js"></script>
     <script type="text/javascript" src="./renxi/functions.js" charset="utf-8"></script>
     <script type="text/javascript" src="./renxi/love.js" charset="utf-8"></script>
-    <audio id="audio" src="renxi/smallstar.mp3" autoplay loop controls></audio>
-    <script>
-        function toggleSound() {
-            var music = document.getElementById("audio"); //获取ID  
-            if (music.paused) { //判读是否播放  
-                music.paused = false;
-                music.play(); //没有就播放 
-            }
-
-        }
-        setTimeout("toggleSound()", 2000);
-    </script>
+    <audio id="audio" loop controls>
+        <source src="renxi/smallstar.ogg" />
+        <source src="renxi/smallstar.mp3" />
+    </audio>
 </head>
 
 <body>
@@ -115,6 +107,9 @@
             var hold = 1;
 
             canvas.click(function (e) {
+                const music = document.getElementById("audio"); //获取ID
+                music.play(); //没有就播放 
+
                 var offset = canvas.offset(), x, y;
                 x = e.pageX - offset.left;
                 y = e.pageY - offset.top;
